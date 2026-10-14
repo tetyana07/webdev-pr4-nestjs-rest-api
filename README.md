@@ -38,9 +38,6 @@ npm run start:dev
 
 ## Результати тестування
 
-### Запуск сервера (без помилок)
-![server](docs/09-server-log.png)
-
 ### GET /gadgets
 ![list](docs/01-list.png)
 
