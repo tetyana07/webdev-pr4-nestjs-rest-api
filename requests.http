@@ -1,0 +1,38 @@
+### 1. Список
+GET http://localhost:3000/gadgets
+
+### 2. Фільтрація
+GET http://localhost:3000/gadgets?search=ноут
+
+### 2.1 Limit
+GET http://localhost:3000/gadgets?limit=2
+
+### 3. Існуючий запис
+GET http://localhost:3000/gadgets/1
+
+### 4. Неіснуючий запис (404)
+GET http://localhost:3000/gadgets/99999
+
+### 5. Створення (201)
+# @name createGadget
+POST http://localhost:3000/gadgets
+Content-Type: application/json
+
+{
+  "title": "Ноутбук Pro 16",
+  "price": 45000,
+  "warrantyMonths": 24,
+  "cpu": "M3 Max",
+  "ramGb": 36
+}
+
+### 6. Часткове оновлення
+PATCH http://localhost:3000/gadgets/{{createGadget.response.body.$.id}}
+Content-Type: application/json
+
+{
+  "price": 42000
+}
+
+### 7. Видалення (204)
+DELETE http://localhost:3000/gadgets/{{createGadget.response.body.$.id}}
